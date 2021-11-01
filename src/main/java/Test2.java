@@ -37,9 +37,6 @@ public class Test2 {
 
         HttpGet request = new HttpGet("https://jsonplaceholder.typicode.com/posts/1");
 
-        // add request headers
-        request.addHeader("custom-key", "mkyong");
-        request.addHeader(HttpHeaders.USER_AGENT, "Googlebot");
 
         try (CloseableHttpResponse response = httpClient.execute(request)) {
 
