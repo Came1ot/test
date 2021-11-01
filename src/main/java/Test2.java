@@ -59,15 +59,16 @@ public class Test2 {
 
     private void sendPost() throws Exception {
 
-        HttpPost post = new HttpPost("https://jsonplaceholder.typicode.com/posts/1");
+        HttpPost post = new HttpPost("https://jsonplaceholder.typicode.com/posts");
 
-        // add request parameter, form parameters
-        //List<NameValuePair> urlParameters = new ArrayList<>();
-        //urlParameters.add(new BasicNameValuePair("id", 1));
-        //urlParameters.add(new BasicNameValuePair("title", "123"));
-        //urlParameters.add(new BasicNameValuePair("custom", "secret"));
+        add request parameter, form parameters
+        List<NameValuePair> urlParameters = new ArrayList<>();
+        urlParameters.add(new BasicNameValuePair("id", 33));
+        urlParameters.add(new BasicNameValuePair("title", "testTitle"));
+        urlParameters.add(new BasicNameValuePair("userId", 2));
+        urlParameters.add(new BasicNameValuePair("body", "testData"));
 
-        //post.setEntity(new UrlEncodedFormEntity(urlParameters));
+        post.setEntity(new UrlEncodedFormEntity(urlParameters));
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault();
              CloseableHttpResponse response = httpClient.execute(post)) {
